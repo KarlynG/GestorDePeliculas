@@ -39,13 +39,15 @@
     }
 
     function GetList(){
-
         $listaPeliculas = $_SESSION[$GLOBALS["sessionName"]];
 
         if(!empty($listaPeliculas)){
             if(isset($_GET['filtroId'])){
                 $listaPeliculas = searchProperty($listaPeliculas, 'generoId', $_GET['filtroId']);
             }
+        }
+        else{
+            $listaPeliculas = [];
         }
 
         return $listaPeliculas;
